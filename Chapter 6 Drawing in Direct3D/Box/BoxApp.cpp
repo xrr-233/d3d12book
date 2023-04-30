@@ -350,7 +350,8 @@ void BoxApp::BuildRootSignature()
 void BoxApp::BuildShadersAndInputLayout()
 {
     HRESULT hr = S_OK;
-    
+
+    // D:\CityU\Collections\2023-04\d3d12book\Chapter 6 Drawing in Direct3D\Box\Shaders\color.hlsl
 	mvsByteCode = d3dUtil::CompileShader(L"Shaders\\color.hlsl", nullptr, "VS", "vs_5_0");
 	mpsByteCode = d3dUtil::CompileShader(L"Shaders\\color.hlsl", nullptr, "PS", "ps_5_0");
 

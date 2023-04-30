@@ -1,4 +1,4 @@
-/*
+
 #include <windows.h> // for XMVerifyCPUSupport
 #include <DirectXMath.h>
 #include <DirectXPackedVector.h>
@@ -50,9 +50,8 @@ int main()
 
     cout << "XMVectorMultiply(u, v)         = " << XMVectorMultiply(u, v) << endl;
     cout << "XMVectorSaturate(q)            = " << XMVectorSaturate(q) << endl;
-    cout << "XMVectorMin(p, v               = " << XMVectorMin(p, v) << endl;
+    cout << "XMVectorMin(p, v)              = " << XMVectorMin(p, v) << endl;
     cout << "XMVectorMax(p, v)              = " << XMVectorMax(p, v) << endl;
 
     return 0; 
 }
-*/
