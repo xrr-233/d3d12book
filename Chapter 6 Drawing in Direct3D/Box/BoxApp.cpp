@@ -351,9 +351,19 @@ void BoxApp::BuildShadersAndInputLayout()
 {
     HRESULT hr = S_OK;
 
+    char *pszMultiByte = getcwd(NULL, 0);
+    int iSize;
+    wchar_t *pwszUnicode ;
+
+    //返回接受字符串所需缓冲区的大小，已经包含字符结尾符'\0'
+    iSize = MultiByteToWideChar(CP_ACP, 0, pszMultiByte, -1, NULL, 0); //iSize =wcslen(pwsUnicode)+1=6
+    pwszUnicode = (wchar_t *)malloc(iSize*sizeof(wchar_t)); //不需要 pwszUnicode = (wchar_t *)malloc((iSize+1)*sizeof(wchar_t))
+    MultiByteToWideChar(CP_ACP, 0, pszMultiByte , -1, pwszUnicode , iSize);
+
+    MessageBox(nullptr, pwszUnicode, L"", MB_OK);
     // D:\CityU\Collections\2023-04\d3d12book\Chapter 6 Drawing in Direct3D\Box\Shaders\color.hlsl
-	mvsByteCode = d3dUtil::CompileShader(L"Shaders\\color.hlsl", nullptr, "VS", "vs_5_0");
-	mpsByteCode = d3dUtil::CompileShader(L"Shaders\\color.hlsl", nullptr, "PS", "ps_5_0");
+	mvsByteCode = d3dUtil::CompileShader(L"..\\Shaders\\color.hlsl", nullptr, "VS", "vs_5_0");
+	mpsByteCode = d3dUtil::CompileShader(L"..\\Shaders\\color.hlsl", nullptr, "PS", "ps_5_0");
 
     mInputLayout =
     {
