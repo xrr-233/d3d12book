@@ -471,13 +471,13 @@ void NormalMapApp::LoadTextures()
 	
 	std::vector<std::wstring> texFilenames = 
 	{
-		L"../../Textures/bricks2.dds",
-		L"../../Textures/bricks2_nmap.dds",
-		L"../../Textures/tile.dds",
-		L"../../Textures/tile_nmap.dds",
-		L"../../Textures/white1x1.dds",
-		L"../../Textures/default_nmap.dds",
-		L"../../Textures/snowcube1024.dds"
+		L"../../../Textures/bricks2.dds",
+		L"../../../Textures/bricks2_nmap.dds",
+		L"../../../Textures/tile.dds",
+		L"../../../Textures/tile_nmap.dds",
+		L"../../../Textures/white1x1.dds",
+		L"../../../Textures/default_nmap.dds",
+		L"../../../Textures/snowcube1024.dds"
 	};
 	
 	for(int i = 0; i < (int)texNames.size(); ++i)
@@ -600,11 +600,11 @@ void NormalMapApp::BuildShadersAndInputLayout()
 		NULL, NULL
 	};
 
-	mShaders["standardVS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
-	mShaders["opaquePS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "PS", "ps_5_1");
+	mShaders["standardVS"] = d3dUtil::CompileShader(L"..\\Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
+	mShaders["opaquePS"] = d3dUtil::CompileShader(L"..\\Shaders\\Default.hlsl", nullptr, "PS", "ps_5_1");
 	
-	mShaders["skyVS"] = d3dUtil::CompileShader(L"Shaders\\Sky.hlsl", nullptr, "VS", "vs_5_1");
-	mShaders["skyPS"] = d3dUtil::CompileShader(L"Shaders\\Sky.hlsl", nullptr, "PS", "ps_5_1");
+	mShaders["skyVS"] = d3dUtil::CompileShader(L"..\\Shaders\\Sky.hlsl", nullptr, "VS", "vs_5_1");
+	mShaders["skyPS"] = d3dUtil::CompileShader(L"..\\Shaders\\Sky.hlsl", nullptr, "PS", "ps_5_1");
 
     mInputLayout =
     {

@@ -476,7 +476,7 @@ void VecAddCSApp::BuildDescriptorHeaps()
 
 void VecAddCSApp::BuildShadersAndInputLayout()
 {
-	mShaders["vecAddCS"] = d3dUtil::CompileShader(L"Shaders\\VecAdd.hlsl", nullptr, "CS", "cs_5_0");
+	mShaders["vecAddCS"] = d3dUtil::CompileShader(L"..\\Shaders\\VecAdd.hlsl", nullptr, "CS", "cs_5_0");
 }
 
 void VecAddCSApp::BuildPSOs()

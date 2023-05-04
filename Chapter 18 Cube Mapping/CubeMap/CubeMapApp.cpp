@@ -467,10 +467,10 @@ void CubeMapApp::LoadTextures()
 
     std::vector<std::wstring> texFilenames =
     {
-        L"../../Textures/bricks2.dds",
-        L"../../Textures/tile.dds",
-        L"../../Textures/white1x1.dds",
-        L"../../Textures/grasscube1024.dds"
+        L"../../../Textures/bricks2.dds",
+        L"../../../Textures/tile.dds",
+        L"../../../Textures/white1x1.dds",
+        L"../../../Textures/grasscube1024.dds"
     };
 
     for (int i = 0; i < (int)texNames.size(); ++i)
@@ -596,11 +596,11 @@ void CubeMapApp::BuildShadersAndInputLayout()
 		NULL, NULL
 	};
 
-	mShaders["standardVS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
-	mShaders["opaquePS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "PS", "ps_5_1");
+	mShaders["standardVS"] = d3dUtil::CompileShader(L"..\\Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
+	mShaders["opaquePS"] = d3dUtil::CompileShader(L"..\\Shaders\\Default.hlsl", nullptr, "PS", "ps_5_1");
 	
-	mShaders["skyVS"] = d3dUtil::CompileShader(L"Shaders\\Sky.hlsl", nullptr, "VS", "vs_5_1");
-	mShaders["skyPS"] = d3dUtil::CompileShader(L"Shaders\\Sky.hlsl", nullptr, "PS", "ps_5_1");
+	mShaders["skyVS"] = d3dUtil::CompileShader(L"..\\Shaders\\Sky.hlsl", nullptr, "VS", "vs_5_1");
+	mShaders["skyPS"] = d3dUtil::CompileShader(L"..\\Shaders\\Sky.hlsl", nullptr, "PS", "ps_5_1");
 
     mInputLayout =
     {
@@ -736,7 +736,7 @@ void CubeMapApp::BuildShapeGeometry()
 
 void CubeMapApp::BuildSkullGeometry()
 {
-    std::ifstream fin("Models/skull.txt");
+    std::ifstream fin("../Models/skull.txt");
 
     if (!fin)
     {

@@ -186,7 +186,7 @@ private:
     PassConstants mShadowPassCB;// index 1 of pass cbuffer.
 
     UINT mSkinnedSrvHeapStart = 0;
-    std::string mSkinnedModelFilename = "Models\\soldier.m3d";
+    std::string mSkinnedModelFilename = "..\\Models\\soldier.m3d";
     std::unique_ptr<SkinnedModelInstance> mSkinnedModelInst; 
     SkinnedData mSkinnedInfo;
     std::vector<M3DLoader::Subset> mSkinnedSubsets;
@@ -799,13 +799,13 @@ void SkinnedMeshApp::LoadTextures()
 	
 	std::vector<std::wstring> texFilenames = 
 	{
-		L"../../Textures/bricks2.dds",
-		L"../../Textures/bricks2_nmap.dds",
-		L"../../Textures/tile.dds",
-		L"../../Textures/tile_nmap.dds",
-		L"../../Textures/white1x1.dds",
-		L"../../Textures/default_nmap.dds",
-		L"../../Textures/desertcube1024.dds"
+		L"../../../Textures/bricks2.dds",
+		L"../../../Textures/bricks2_nmap.dds",
+		L"../../../Textures/tile.dds",
+		L"../../../Textures/tile_nmap.dds",
+		L"../../../Textures/white1x1.dds",
+		L"../../../Textures/default_nmap.dds",
+		L"../../../Textures/desertcube1024.dds"
 	};
 
     // Add skinned model textures to list so we can reference by name later.
@@ -814,8 +814,8 @@ void SkinnedMeshApp::LoadTextures()
         std::string diffuseName = mSkinnedMats[i].DiffuseMapName;
         std::string normalName = mSkinnedMats[i].NormalMapName;
 
-        std::wstring diffuseFilename = L"../../Textures/" + AnsiToWString(diffuseName);
-        std::wstring normalFilename = L"../../Textures/" + AnsiToWString(normalName);
+        std::wstring diffuseFilename = L"../../../Textures/" + AnsiToWString(diffuseName);
+        std::wstring normalFilename = L"../../../Textures/" + AnsiToWString(normalName);
 
         // strip off extension
         diffuseName = diffuseName.substr(0, diffuseName.find_last_of("."));
@@ -1083,30 +1083,30 @@ void SkinnedMeshApp::BuildShadersAndInputLayout()
         NULL, NULL
     };
 
-	mShaders["standardVS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
-    mShaders["skinnedVS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", skinnedDefines, "VS", "vs_5_1");
-	mShaders["opaquePS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "PS", "ps_5_1");
+	mShaders["standardVS"] = d3dUtil::CompileShader(L"..\\Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
+    mShaders["skinnedVS"] = d3dUtil::CompileShader(L"..\\Shaders\\Default.hlsl", skinnedDefines, "VS", "vs_5_1");
+	mShaders["opaquePS"] = d3dUtil::CompileShader(L"..\\Shaders\\Default.hlsl", nullptr, "PS", "ps_5_1");
 
-    mShaders["shadowVS"] = d3dUtil::CompileShader(L"Shaders\\Shadows.hlsl", nullptr, "VS", "vs_5_1");
-    mShaders["skinnedShadowVS"] = d3dUtil::CompileShader(L"Shaders\\Shadows.hlsl", skinnedDefines, "VS", "vs_5_1");
-    mShaders["shadowOpaquePS"] = d3dUtil::CompileShader(L"Shaders\\Shadows.hlsl", nullptr, "PS", "ps_5_1");
-    mShaders["shadowAlphaTestedPS"] = d3dUtil::CompileShader(L"Shaders\\Shadows.hlsl", alphaTestDefines, "PS", "ps_5_1");
+    mShaders["shadowVS"] = d3dUtil::CompileShader(L"..\\Shaders\\Shadows.hlsl", nullptr, "VS", "vs_5_1");
+    mShaders["skinnedShadowVS"] = d3dUtil::CompileShader(L"..\\Shaders\\Shadows.hlsl", skinnedDefines, "VS", "vs_5_1");
+    mShaders["shadowOpaquePS"] = d3dUtil::CompileShader(L"..\\Shaders\\Shadows.hlsl", nullptr, "PS", "ps_5_1");
+    mShaders["shadowAlphaTestedPS"] = d3dUtil::CompileShader(L"..\\Shaders\\Shadows.hlsl", alphaTestDefines, "PS", "ps_5_1");
 	
-    mShaders["debugVS"] = d3dUtil::CompileShader(L"Shaders\\ShadowDebug.hlsl", nullptr, "VS", "vs_5_1");
-    mShaders["debugPS"] = d3dUtil::CompileShader(L"Shaders\\ShadowDebug.hlsl", nullptr, "PS", "ps_5_1");
+    mShaders["debugVS"] = d3dUtil::CompileShader(L"..\\Shaders\\ShadowDebug.hlsl", nullptr, "VS", "vs_5_1");
+    mShaders["debugPS"] = d3dUtil::CompileShader(L"..\\Shaders\\ShadowDebug.hlsl", nullptr, "PS", "ps_5_1");
 
-    mShaders["drawNormalsVS"] = d3dUtil::CompileShader(L"Shaders\\DrawNormals.hlsl", nullptr, "VS", "vs_5_1");
-    mShaders["skinnedDrawNormalsVS"] = d3dUtil::CompileShader(L"Shaders\\DrawNormals.hlsl", skinnedDefines, "VS", "vs_5_1");
-    mShaders["drawNormalsPS"] = d3dUtil::CompileShader(L"Shaders\\DrawNormals.hlsl", nullptr, "PS", "ps_5_1");
+    mShaders["drawNormalsVS"] = d3dUtil::CompileShader(L"..\\Shaders\\DrawNormals.hlsl", nullptr, "VS", "vs_5_1");
+    mShaders["skinnedDrawNormalsVS"] = d3dUtil::CompileShader(L"..\\Shaders\\DrawNormals.hlsl", skinnedDefines, "VS", "vs_5_1");
+    mShaders["drawNormalsPS"] = d3dUtil::CompileShader(L"..\\Shaders\\DrawNormals.hlsl", nullptr, "PS", "ps_5_1");
 
-    mShaders["ssaoVS"] = d3dUtil::CompileShader(L"Shaders\\Ssao.hlsl", nullptr, "VS", "vs_5_1");
-    mShaders["ssaoPS"] = d3dUtil::CompileShader(L"Shaders\\Ssao.hlsl", nullptr, "PS", "ps_5_1");
+    mShaders["ssaoVS"] = d3dUtil::CompileShader(L"..\\Shaders\\Ssao.hlsl", nullptr, "VS", "vs_5_1");
+    mShaders["ssaoPS"] = d3dUtil::CompileShader(L"..\\Shaders\\Ssao.hlsl", nullptr, "PS", "ps_5_1");
 
-    mShaders["ssaoBlurVS"] = d3dUtil::CompileShader(L"Shaders\\SsaoBlur.hlsl", nullptr, "VS", "vs_5_1");
-    mShaders["ssaoBlurPS"] = d3dUtil::CompileShader(L"Shaders\\SsaoBlur.hlsl", nullptr, "PS", "ps_5_1");
+    mShaders["ssaoBlurVS"] = d3dUtil::CompileShader(L"..\\Shaders\\SsaoBlur.hlsl", nullptr, "VS", "vs_5_1");
+    mShaders["ssaoBlurPS"] = d3dUtil::CompileShader(L"..\\Shaders\\SsaoBlur.hlsl", nullptr, "PS", "ps_5_1");
 
-	mShaders["skyVS"] = d3dUtil::CompileShader(L"Shaders\\Sky.hlsl", nullptr, "VS", "vs_5_1");
-	mShaders["skyPS"] = d3dUtil::CompileShader(L"Shaders\\Sky.hlsl", nullptr, "PS", "ps_5_1");
+	mShaders["skyVS"] = d3dUtil::CompileShader(L"..\\Shaders\\Sky.hlsl", nullptr, "VS", "vs_5_1");
+	mShaders["skyPS"] = d3dUtil::CompileShader(L"..\\Shaders\\Sky.hlsl", nullptr, "PS", "ps_5_1");
 
     mInputLayout =
     {

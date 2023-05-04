@@ -465,7 +465,7 @@ void PickingApp::LoadTextures()
 {
 	auto defaultDiffuseTex = std::make_unique<Texture>();
 	defaultDiffuseTex->Name = "defaultDiffuseTex";
-	defaultDiffuseTex->Filename = L"../../Textures/white1x1.dds";
+	defaultDiffuseTex->Filename = L"../../../Textures/white1x1.dds";
 	ThrowIfFailed(DirectX::CreateDDSTextureFromFile12(md3dDevice.Get(),
 		mCommandList.Get(), defaultDiffuseTex->Filename.c_str(),
 		defaultDiffuseTex->Resource, defaultDiffuseTex->UploadHeap));
@@ -550,8 +550,8 @@ void PickingApp::BuildShadersAndInputLayout()
 		NULL, NULL
 	};
 
-	mShaders["standardVS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
-	mShaders["opaquePS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "PS", "ps_5_1");
+	mShaders["standardVS"] = d3dUtil::CompileShader(L"..\\Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
+	mShaders["opaquePS"] = d3dUtil::CompileShader(L"..\\Shaders\\Default.hlsl", nullptr, "PS", "ps_5_1");
 	
     mInputLayout =
     {
@@ -563,7 +563,7 @@ void PickingApp::BuildShadersAndInputLayout()
 
 void PickingApp::BuildCarGeometry()
 {
-	std::ifstream fin("Models/car.txt");
+	std::ifstream fin("../Models/car.txt");
 
 	if(!fin)
 	{

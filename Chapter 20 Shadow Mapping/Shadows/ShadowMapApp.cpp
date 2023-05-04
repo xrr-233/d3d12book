@@ -623,13 +623,13 @@ void ShadowMapApp::LoadTextures()
 	
     std::vector<std::wstring> texFilenames =
     {
-        L"../../Textures/bricks2.dds",
-        L"../../Textures/bricks2_nmap.dds",
-        L"../../Textures/tile.dds",
-        L"../../Textures/tile_nmap.dds",
-        L"../../Textures/white1x1.dds",
-        L"../../Textures/default_nmap.dds",
-        L"../../Textures/desertcube1024.dds"
+        L"../../../Textures/bricks2.dds",
+        L"../../../Textures/bricks2_nmap.dds",
+        L"../../../Textures/tile.dds",
+        L"../../../Textures/tile_nmap.dds",
+        L"../../../Textures/white1x1.dds",
+        L"../../../Textures/default_nmap.dds",
+        L"../../../Textures/desertcube1024.dds"
     };
 	
 	for(int i = 0; i < (int)texNames.size(); ++i)
@@ -779,18 +779,18 @@ void ShadowMapApp::BuildShadersAndInputLayout()
 		NULL, NULL
 	};
 
-	mShaders["standardVS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
-	mShaders["opaquePS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "PS", "ps_5_1");
+	mShaders["standardVS"] = d3dUtil::CompileShader(L"..\\Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
+	mShaders["opaquePS"] = d3dUtil::CompileShader(L"..\\Shaders\\Default.hlsl", nullptr, "PS", "ps_5_1");
 
-    mShaders["shadowVS"] = d3dUtil::CompileShader(L"Shaders\\Shadows.hlsl", nullptr, "VS", "vs_5_1");
-    mShaders["shadowOpaquePS"] = d3dUtil::CompileShader(L"Shaders\\Shadows.hlsl", nullptr, "PS", "ps_5_1");
-    mShaders["shadowAlphaTestedPS"] = d3dUtil::CompileShader(L"Shaders\\Shadows.hlsl", alphaTestDefines, "PS", "ps_5_1");
+    mShaders["shadowVS"] = d3dUtil::CompileShader(L"..\\Shaders\\Shadows.hlsl", nullptr, "VS", "vs_5_1");
+    mShaders["shadowOpaquePS"] = d3dUtil::CompileShader(L"..\\Shaders\\Shadows.hlsl", nullptr, "PS", "ps_5_1");
+    mShaders["shadowAlphaTestedPS"] = d3dUtil::CompileShader(L"..\\Shaders\\Shadows.hlsl", alphaTestDefines, "PS", "ps_5_1");
 	
-    mShaders["debugVS"] = d3dUtil::CompileShader(L"Shaders\\ShadowDebug.hlsl", nullptr, "VS", "vs_5_1");
-    mShaders["debugPS"] = d3dUtil::CompileShader(L"Shaders\\ShadowDebug.hlsl", nullptr, "PS", "ps_5_1");
+    mShaders["debugVS"] = d3dUtil::CompileShader(L"..\\Shaders\\ShadowDebug.hlsl", nullptr, "VS", "vs_5_1");
+    mShaders["debugPS"] = d3dUtil::CompileShader(L"..\\Shaders\\ShadowDebug.hlsl", nullptr, "PS", "ps_5_1");
 
-	mShaders["skyVS"] = d3dUtil::CompileShader(L"Shaders\\Sky.hlsl", nullptr, "VS", "vs_5_1");
-	mShaders["skyPS"] = d3dUtil::CompileShader(L"Shaders\\Sky.hlsl", nullptr, "PS", "ps_5_1");
+	mShaders["skyVS"] = d3dUtil::CompileShader(L"..\\Shaders\\Sky.hlsl", nullptr, "VS", "vs_5_1");
+	mShaders["skyPS"] = d3dUtil::CompileShader(L"..\\Shaders\\Sky.hlsl", nullptr, "PS", "ps_5_1");
 
     mInputLayout =
     {
@@ -950,7 +950,7 @@ void ShadowMapApp::BuildShapeGeometry()
 
 void ShadowMapApp::BuildSkullGeometry()
 {
-    std::ifstream fin("Models/skull.txt");
+    std::ifstream fin("../Models/skull.txt");
 
     if (!fin)
     {

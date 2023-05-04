@@ -479,8 +479,8 @@ void LitColumnsApp::BuildShadersAndInputLayout()
 		NULL, NULL
 	};
 
-	mShaders["standardVS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
-	mShaders["opaquePS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "PS", "ps_5_1");
+	mShaders["standardVS"] = d3dUtil::CompileShader(L"..\\Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
+	mShaders["opaquePS"] = d3dUtil::CompileShader(L"..\\Shaders\\Default.hlsl", nullptr, "PS", "ps_5_1");
 	
     mInputLayout =
     {
@@ -612,7 +612,7 @@ void LitColumnsApp::BuildShapeGeometry()
 
 void LitColumnsApp::BuildSkullGeometry()
 {
-	std::ifstream fin("Models/skull.txt");
+	std::ifstream fin("../Models/skull.txt");
 
 	if(!fin)
 	{
